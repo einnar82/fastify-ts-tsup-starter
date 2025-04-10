@@ -9,8 +9,6 @@ const envSchema = z.object({
   NODE_ENV: z.enum(['development', 'production', 'test']).default('development'),
 });
 
-type Env = z.infer<typeof envSchema>;
-
 export default fp(async function envPlugin(fastify, _opts) {
   const result = envSchema.safeParse(process.env);
 
