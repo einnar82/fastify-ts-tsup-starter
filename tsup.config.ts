@@ -11,4 +11,5 @@ export default defineConfig({
   splitting: false,
   outDir: 'dist',
   outExtension: () => ({ js: '.js' }),
+  tsconfig: './tsconfig.json'
 });

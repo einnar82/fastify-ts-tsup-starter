@@ -1,3 +1,4 @@
+import path from 'path';
 import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
@@ -7,6 +8,11 @@ export default defineConfig({
     include: ['tests/**/*.test.ts'],
     coverage: {
         reporter: ['text', 'json', 'html'],
+    },
+  },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
     },
   },
 });
