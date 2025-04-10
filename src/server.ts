@@ -17,6 +17,7 @@ export async function createServer() {
   app.register(autoload, {
     dir: join(__dirname, 'routes'),
     options: {},
+    dirNameRoutePrefix: true,
   });
 
   return app;
