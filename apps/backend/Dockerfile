@@ -8,8 +8,8 @@ RUN pnpm install
 COPY ./apps/backend/tsconfig.json /app
 COPY ./apps/backend/vitest.config.ts /app
 COPY ./apps/backend/tsup.config.ts /app
-# COPY apps/backend/knexfile.ts /app/
-# COPY apps/backend/migrations /app/migrations/
+COPY apps/backend/knexfile.ts /app/
+COPY apps/backend/migrations /app/migrations/
 # COPY apps/backend/seeds /app/seeds/
 COPY ./apps/backend/tests /app/tests
 COPY ./apps/backend/src /app/src

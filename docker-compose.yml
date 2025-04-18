@@ -18,13 +18,15 @@ services:
     container_name: backend
     env_file:
       - .env
+    environment:
+      DATABASE_URL: postgres://postgres:password@db:5432/postgres
     ports:
       - "3000:3000"
     depends_on:
       - db
     volumes:
       - ./apps/backend/src:/app/src
-#      - ./apps/backend/migrations:/app/migrations
+      - ./apps/backend/migrations:/app/migrations
 #      - ./apps/backend/seeds:/app/seeds
 #      - ./apps/backend/scripts:/app/scripts
     restart: unless-stopped
