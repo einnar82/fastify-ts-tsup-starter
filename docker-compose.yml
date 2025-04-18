@@ -1,0 +1,33 @@
+services:
+  db:
+    image: postgres:15-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  backend:
+    build:
+      context: .
+      dockerfile: ./apps/backend/Dockerfile
+    container_name: backend
+    env_file:
+      - .env
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    volumes:
+      - ./apps/backend/src:/app/src
+#      - ./apps/backend/migrations:/app/migrations
+#      - ./apps/backend/seeds:/app/seeds
+#      - ./apps/backend/scripts:/app/scripts
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
