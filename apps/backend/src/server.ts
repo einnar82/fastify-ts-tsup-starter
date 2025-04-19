@@ -53,5 +53,7 @@ export async function createServer() {
     return app;
   } catch (e) {
     console.error("Error in server: ", e)
+
+    throw e;
   }
 }
