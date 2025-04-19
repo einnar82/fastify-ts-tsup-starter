@@ -2,7 +2,7 @@ import { FastifyInstance } from 'fastify';
 import { HealthSchema } from "@/modules/health/schemas/health.schema"
 
 export default async function healthRoutes(server: FastifyInstance) {
-  server.get('/health', {
+  server.get('/', {
     schema: HealthSchema
   },  async (_request, reply) => {
     return reply.send({ status: 'ok' });

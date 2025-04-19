@@ -29,7 +29,6 @@ export async function createServer() {
       dir: join(__dirname, 'routes'),
       options: {},
       dirNameRoutePrefix: true,
-      prefix: '/api'
     });
 
     app.setErrorHandler((error, _request, reply) => {
